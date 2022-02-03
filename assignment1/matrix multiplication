@@ -1,0 +1,54 @@
+/*Jetti Veerraju ADC_RJY Matrix multiplication*/
+
+#include <stdio.h>
+
+int main() {
+  int A[10][10], B[10][10], C[10][10];
+ int  m, p, q, n, i, j, k;
+
+  printf("Rows for Matrix A: ");
+  scanf("%d", &m);
+
+  printf("Columns for Matrix A: ");
+  scanf("%d", &p);
+
+  printf("Rows for Matrix B: ");
+  scanf("%d", &q);
+
+  printf("Columns Matrix B: ");
+  scanf("%d", &n);
+
+  for(i=0; i < m; i++) {
+    for(j=0; j < p; j++) {
+      printf("A %d%d:", i, j);
+      scanf("%d", &A[i][j]);
+    }
+  }
+
+  for(j=0; j < q; j++) {
+    for(k=0; k < n; k++) {
+      printf("B %d%d: ", j, k);
+      scanf("%d", &B[j][k]);
+    }
+  }  
+
+  for(i=0; i < m; i++) {
+    for(j=0; j < n; j++) {
+      C[i][j] = 0;
+      for(k=0; k < p; k++) { 
+        C[i][j] += A[i][k]*B[k][j];
+      }
+    }
+  }
+
+  printf("Product Matrix A and B \n");
+
+  for(i = 0; i < m; i++) {
+    for(k = 0; k < n; k++) {
+      printf("%d ", C[i][k]);
+    }
+    printf("\n");
+  }
+
+  return 0;
+}
